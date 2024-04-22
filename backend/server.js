@@ -1,5 +1,9 @@
 const express = require("express");
 const mongoose = require("mongoose");
+const dotenv= require('dotenv')
+const cors = require()
+
+dotenv.config();
 
 const hotelRouter = require("./routes/hotel.router");
 const hotelDataAddedToDBRouter = require("./routes/dataimport.route");
@@ -13,6 +17,7 @@ const connectDB = require("./config/dbconfig");
 
 const app = express();
 
+app.use(cors());
 app.use(express.json());
 connectDB();
 
