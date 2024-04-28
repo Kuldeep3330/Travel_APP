@@ -9,10 +9,13 @@ export const HotelCard = ({ hotel }) => {
   const { wishlistDispatch, wishlist } = useWishlist();
 
   const { accessToken, authDispatch } = useAuth();
+  // console.log(accessToken);
 
   const { setAlert } = useAlert();
 
   const isHotelInWishlist = findHotelInWishlist(wishlist, _id);
+
+  console.log({wishlist});
 
   const navigate = useNavigate();
 
@@ -31,7 +34,8 @@ export const HotelCard = ({ hotel }) => {
           open: true,
           message: `Hotel:: ${name} added to wishlist`,
           type: "success"
-        })
+        });
+        // navigate("/wishlist");
       } else {
         wishlistDispatch({
           type: "REMOVE_FROM_WISHLIST",
