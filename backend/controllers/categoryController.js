@@ -1,12 +1,11 @@
-const Category = require("../model/category.model");
-
+import Category from "../model/category.model.js";
 const categoryHandler = async (req, res)=>{
     try {
         const categories = await Category.find({});
-        res.json(categories)
+        res.status(200).json(categories)
     } catch (error) {
-        res.status(404).json({message: "Could not find categories"})
+        res.status(404).json({message: "Could not find categories", error:error.message})
    }
 }
 
-module.exports = categoryHandler
+export default categoryHandler

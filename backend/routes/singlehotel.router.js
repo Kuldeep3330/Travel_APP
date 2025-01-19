@@ -1,9 +1,9 @@
-const express = require("express");
+import express from"express"
 const router = express.Router();
 
-const singleHotelHandler = require("../controllers/singleHotelController");
+import singleHotelHandler from "../controllers/singleHotelController.js";
 
 router.route("/:id")
     .get(singleHotelHandler)
 
-module.exports=router;
+export default router;

@@ -13,4 +13,16 @@ const connectDB = async () => {
     }
 }
 
-export default connectDB
+const gracefulShutdown= async()=>{
+    try {
+        await mongoose.disconnect();
+        console.log('MongoDb connection closed.');
+        process.exit(0);        
+        
+    } catch (error) {
+        console.log('MongoDB disconnection failed ', error.message)   
+        process.exit(1); 
+    }
+}
+
+export {connectDB, gracefulShutdown}

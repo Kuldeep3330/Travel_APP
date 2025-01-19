@@ -1,20 +1,20 @@
-const express = require('express');
-
-const Category = require("../model/category.model");
-const categories = require("../data/categories");
+import express from 'express'
+import Category from '../model/category.model.js'
+import categories from '../data/categories.js'
 
 const router = express.Router();
 
 router.route("/")
     .post(async (req, res) => {
         try{
-            await Category.remove;
+            // Clear the collection
+            await Category.deleteMany({});
             const categoriesInDB = await Category.insertMany(categories.data);
-            res.json(categoriesInDB)
+            res.status(200).json(categoriesInDB)
         }catch(err){
             console.log(err);
-            res.json({ message: "Could not add categories data to DB"})
+            res.status(500).json({ message: "Could not add categories data to DB", error: err.message })
         }
     })
 
-module.exports = router;
+export default router;

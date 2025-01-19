@@ -1,6 +1,7 @@
-const mongoose = require('mongoose')
+import mongoose,{Schema} from "mongoose";
 
-const hotelSchema = new mongoose.Schema({
+const hotelSchema = new Schema(
+  {
     name: { type: String, required: true },
     category: { type: String, required: true },
     image: { type: String, required: true },
@@ -23,10 +24,12 @@ const hotelSchema = new mongoose.Schema({
     houseRules: { type: Array, required: true },
     propertyType: { type: String, required: true },
     isCancelable: { type: Boolean, required: true },
-}, {
-    timestamps:true
-})
+  },
+  {
+    timestamps: true,
+  }
+);
 
 const Hotel = mongoose.model("Hotel", hotelSchema);
 
-module.exports = Hotel;
+export default Hotel;
