@@ -1,9 +1,15 @@
-const express = require('express');
+
+import express from "express"
 const router = express.Router();
+// import getAllHotelHandler from "../controllers/hotelController.js";
+import  hotels  from "../data/hotels.js";
 
-const getAllHotelHandler = require('../controllers/hotelController');
+// router.route("/")//---->https://localhost:3500/api/hotels/
+//     .get(getAllHotelHandler)
 
-router.route("/")//---->https://localhost:3500/api/hotels/
-    .get(getAllHotelHandler)
+router.route('/').get((req, res)=>{
+    res.json(hotels.data)
+    
+})
 
-module.exports = router;
+export default router;

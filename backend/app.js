@@ -1,16 +1,13 @@
-import dotenv from "dotenv";
-import {app} from "./app.js";
-import connectDB from "./db/db-index.js";
+import express from 'express'
+import cors from 'cors'
+import hotelRouter from './routes/hotel.router.js'
+const app= express()
 
-
-
-dotenv.config({
-  path:'./env'
-})
-
-
-
-const PORT= process.env.PORT || 3000
+app.use(cors({
+    origin:process.env.CORS_ORIGIN,
+    credentials:true
+}))
+app.use(express.json({limit:'16kb'}))
 
 
 // const hotelRouter = require("./routes/hotel.router");
@@ -21,19 +18,11 @@ const PORT= process.env.PORT || 3000
 // const authRouter = require("./routes/auth.router")
 // const wishListRouter = require("./routes/wishlist.router")
 
-// const connectDB = require("./db/db-index");
+app.get("/", (req, res) => {
+    res.send("Hello World");
+  });
+app.use('/api/hotels', hotelRouter)
 
-// const app = express();
-
-// app.use(cors());
-// app.use(express.json());
-// connectDB();
-
-// const PORT=3500;
-
-// app.get("/", (req, res) => {
-//     res.send("Hello World");
-//   });
 
 // app.use("/api/hoteldata", hotelDataAddedToDBRouter);
 // app.use("/api/categoriesdata", categoryDataAddedToDBRouter);
@@ -43,17 +32,6 @@ const PORT= process.env.PORT || 3000
 // app.use("/api/auth", authRouter);
 // app.use("/api/wishlist", wishListRouter);
 
-connectDB()
-.then(()=>{
-  app.listen(PORT, ()=>{
-    console.log(`sever is running at ${PORT}`);    
-  })
-})
-.catch((err)=>{
-  console.log(`MONGODB Connection failed`, err.message)
-  process.exit(1);
-})
 
 
-
-
+export {app}
