@@ -1,4 +1,4 @@
-const Wishlist = require("../model/wishlist.model") 
+import Wishlist from "../model/wishlist.model.js" 
 
 const createWishlistHandler = async(req, res)=>{
     const newWishlist = new Wishlist(req.body);
@@ -6,7 +6,8 @@ const createWishlistHandler = async(req, res)=>{
         const savedWishlist = await newWishlist.save();
         res.status(201).json(savedWishlist);
     } catch (error) {
-        res.status(500).json({message:"faiseld to create wishlist"});
+        console.error("Error creating wishlist:", error.message);       
+        res.status(500).json({message:"failed to create wishlist"});
         
     }
 }
@@ -14,9 +15,10 @@ const createWishlistHandler = async(req, res)=>{
 const deleteWishlistHandler = async(req, res)=>{
     try {
         await Wishlist.findByIdAndDelete(req.params.id);
-        res.json({message:"hotel deleted from Wishlist"});
+        res.status(201).json({message:"hotel deleted from Wishlist"});
 
-    } catch (err) {
+    } catch (error) {
+        console.log(error.message);
         res.status(500).json({message:"hotel is not deleted from Wishlist"});
     }
 };
@@ -27,10 +29,11 @@ const getWishlistHandler =  async(req, res)=>{
         wishlist ? res.json(wishlist):res.json({message:"no item found"});
 
         
-    } catch (err) {
-        res.status(500).json(err);
+    } catch (error) {
+        console.log(error.message);
+        res.status(500).json({message:"not get wishlist"});
         
     }
 };
 
-module.exports= {createWishlistHandler, deleteWishlistHandler, getWishlistHandler};
+export {createWishlistHandler, deleteWishlistHandler, getWishlistHandler};
