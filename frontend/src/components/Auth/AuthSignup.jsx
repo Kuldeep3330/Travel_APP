@@ -5,7 +5,7 @@ import {
   validateName,
   validateNumber,
   validatePassword,
-} from "../../utils";
+} from "../../../utils";
 
 import { signupHandler } from "../../services";
 

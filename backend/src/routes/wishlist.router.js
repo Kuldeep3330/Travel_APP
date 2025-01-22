@@ -1,6 +1,6 @@
  import express from 'express';
 
- import verifyUser from "../../middleware/verifyuser.js";
+ import verifyUser from "../middleware/auth.middleware.js";
 
  import {createWishlistHandler, deleteWishlistHandler, getWishlistHandler} from "../controllers/wishlistController.js";
 

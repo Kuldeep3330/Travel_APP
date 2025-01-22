@@ -19,7 +19,7 @@ import {
   getHotelsByPropertyType,
   getHotelsByRatings,
   getHotelsByCancelation,
-} from "../../utils";
+} from "../../../utils";
 
 export const Home = () => {
   const [hasMore, setHasMore] = useState(true);
@@ -46,7 +46,7 @@ export const Home = () => {
     (async () => {
       try {
         const { data } = await axios.get(
-          `https://orca-app-f833n.ondigitalocean.app/api/hotels?category=${hotelCategory}`
+          `/api/v1/hotels?category=${hotelCategory}`
         );
 
         setTestData(data);

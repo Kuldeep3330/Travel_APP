@@ -1,7 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import "./HotelCard.css";
 import { useWishlist, useAuth, useAlert } from "../../context";
-import { findHotelInWishlist } from "../../utils";
+import { findHotelInWishlist } from "../../../utils";
 
 export const HotelCard = ({ hotel }) => {
   const { _id, name, image, address, state, rating, price } = hotel;

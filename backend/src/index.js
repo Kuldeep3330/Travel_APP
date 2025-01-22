@@ -16,7 +16,7 @@ process.on("SIGTERM", gracefulShutdown); // For termination from the OS or a clo
 connectDB()
   .then(() => {
     app.listen(PORT, () => {
-      console.log(`sever is running at ${PORT}`);
+      console.log(`sever is running at http://localhost:${PORT}`);
     });
   })
   .catch((err) => {

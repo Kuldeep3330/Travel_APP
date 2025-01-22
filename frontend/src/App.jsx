@@ -1,3 +1,4 @@
+import React from "react";
 import { Route, Routes } from "react-router-dom";
 import {
   Home,
@@ -6,10 +7,13 @@ import {
   Wishlist,
   Payment,
   OrderSummary
-} from "./pages";
+} from "../src/pages";
 import "./App.css";
 
+
 function App() {
+
+
   return (
     <Routes>
       <Route path="/" element={<Home />} />
@@ -22,7 +26,7 @@ function App() {
       <Route path="/confirm-booking/stay/:id" element={<Payment />} />
       <Route path="/order-summary" element={<OrderSummary />} />
     </Routes>
-  );
+  )
 }
 
-export default App;
+export default App

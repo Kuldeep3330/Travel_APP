@@ -20,7 +20,7 @@ export const Categories = () => {
     (async () => {
       try {
         const { data } = await axios.get(
-          "https://orca-app-f833n.ondigitalocean.app/api/category"
+          "/api/v1/category"
         );
         setCategories(data);
       } catch (err) {
