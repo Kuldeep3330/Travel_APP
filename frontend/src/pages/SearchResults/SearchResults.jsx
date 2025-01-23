@@ -13,7 +13,7 @@ export const SearchResults = () => {
     (async () => {
       try {
         const { data } = await axios.get(
-          `https://orca-app-f833n.ondigitalocean.app/api/hotels?category=${hotelCategory}`
+          `/api/v1/hotels?category=${hotelCategory}`
         );
         setHotels(data);
       } catch (err) {

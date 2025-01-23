@@ -48,7 +48,7 @@ export const Home = () => {
         const { data } = await axios.get(
           `/api/v1/hotels?category=${hotelCategory}`
         );
-
+        // console.log(data);
         setTestData(data);
         setHotels(data ? data.slice(0, 16) : []);
       } catch (err) {

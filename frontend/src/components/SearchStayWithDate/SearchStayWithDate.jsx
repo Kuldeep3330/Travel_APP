@@ -16,7 +16,7 @@ export const SearchStayWithDate = () => {
     (async () => {
       try {
         const { data } = await axios.get(
-          `https://orca-app-f833n.ondigitalocean.app/api/hotels?category=${hotelCategory}`
+          `/api/v1/hotels?category=${hotelCategory}`
         );
         setHotels(data);
       } catch (err) {
@@ -118,8 +118,9 @@ export const SearchStayWithDate = () => {
       {isSearchResultOpen && (
         <div className="search-result-container absolute">
           {destinationOptions &&
-            destinationOptions.map(({ address, city }) => (
+            destinationOptions.map(({_id, address, city }) => (
               <p
+                key={_id}
                 className="p cursor-pointer"
                 onClick={() => handleSearchResultClick(address)}
               >

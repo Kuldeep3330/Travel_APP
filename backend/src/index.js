@@ -6,7 +6,7 @@ dotenv.config({
   path: "./env",
 });
 
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 8000;
 
 // Listen for termination signals
 process.on("SIGINT", gracefulShutdown); // For Ctrl+C

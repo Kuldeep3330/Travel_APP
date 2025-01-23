@@ -1,10 +1,10 @@
 import { createContext, useContext, useState } from "react";
 
-const initialValue = "National Parks";
 
-const CategoryContext = createContext(initialValue);
 
-const CategoryProvider = ({ children }) => {
+const CategoryContext = createContext(null);
+
+const CategoryProvider = ({ children , initialValue = "National Parks"}) => {
   const [hotelCategory, setHotelCategory] = useState(initialValue);
 
   return (
@@ -14,6 +14,14 @@ const CategoryProvider = ({ children }) => {
   );
 };
 
-const useCategory = () => useContext(CategoryContext);
+// const useCategory = () => useContext(CategoryContext);
+
+const useCategory = () => {
+  const context = useContext(CategoryContext);
+  if (!context) {
+    throw new Error("useCategory must be used within a CategoryProvider");
+  }
+  return context;
+};
 
 export { useCategory, CategoryProvider };

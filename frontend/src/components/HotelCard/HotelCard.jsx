@@ -15,7 +15,9 @@ export const HotelCard = ({ hotel }) => {
 
   const isHotelInWishlist = findHotelInWishlist(wishlist, _id);
 
-  console.log({wishlist});
+  // console.log({wishlist}
+
+  // );
 
   const navigate = useNavigate();
 
@@ -64,7 +66,7 @@ export const HotelCard = ({ hotel }) => {
               {address}, {state}
             </span>
             <span className="rating d-flex align-center">
-              <span class="material-icons-outlined">star</span>
+              <span className="material-icons-outlined">star</span>
               <span>{rating}</span>
             </span>
           </div>

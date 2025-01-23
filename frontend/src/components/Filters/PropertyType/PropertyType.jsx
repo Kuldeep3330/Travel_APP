@@ -11,7 +11,7 @@ const propertyTypes = [
 export const PropertyType = () => {
   const { propertyType, filterDispatch } = useFilter();
 
-  console.log({ propertyType });
+  // console.log({ propertyType });
 
   const handlePropertyClick = (property) => {
     filterDispatch({

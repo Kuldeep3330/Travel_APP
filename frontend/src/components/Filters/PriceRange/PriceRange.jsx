@@ -11,7 +11,7 @@ function valuetext(value) {
 export const PriceRange = () => {
   const { priceRange, filterDispatch } = useFilter();
 
-  console.log({ priceRange });
+  // console.log({ priceRange });
 
   const handlePriceChange = (event, newValue, activeThumb) => {
     if (!Array.isArray(newValue)) {

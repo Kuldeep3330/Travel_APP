@@ -26,7 +26,7 @@ export const SingleHotel = () => {
     (async () => {
       try {
         const { data } = await axios.get(
-          `https://orca-app-f833n.ondigitalocean.app/api/hotels/${id}`
+          `/api/v1/hotels/${id}`
         );
         setSingleHotel(data);
       } catch (err) {

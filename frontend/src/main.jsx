@@ -15,7 +15,7 @@ import {
 
 // Combine all providers into a single wrapper component
 const AppProviders = ({ children }) => (
-  <CategoryProvider>
+  <CategoryProvider initialValue="National Parks">
     <DateProvider>
       <FilterProvider>
         <AuthProvider>
